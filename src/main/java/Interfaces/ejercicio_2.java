@@ -113,6 +113,8 @@ public class ejercicio_2 extends javax.swing.JFrame {
     public JPanel getOp() {
         return op;
     }
-
+public void crear(){
+    
+}
 
 }
