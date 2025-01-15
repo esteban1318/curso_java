@@ -15,7 +15,7 @@ public class interfaz_codigo{
         frame.setContentPane(operacion.getOp());
         
         frame.setVisible(true);
-        
+        System.out.println("hola mundo");
         
     }
 }
