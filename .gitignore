@@ -1,0 +1,63 @@
+# Bytecode generado
+*.class
+
+# Archivos generados por compiladores y herramientas
+*.log
+*.war
+*.ear
+*.jar
+
+# Archivos de configuración específicos del IDE
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# VS Code
+.vscode/
+
+# Directorios de construcción
+build/
+target/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Configuración de Maven
+.mvn/
+.settings/
+*.maven.repo/
+
+# Configuración de Gradle
+.gradle/
+build/
+
+# Archivos de configuración de la línea de comandos
+*.swp
+*.swo
+
+# Configuración de logs y datos temporales
+logs/
+*.log
+*.tmp
+*.temp
+
+# Archivos específicos del sistema operativo
+*.bak
+*~
