@@ -4,8 +4,10 @@
  */
 package Interfaces;
 
+import java.awt.CardLayout;
 import java.util.Scanner;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -16,13 +18,19 @@ import javax.swing.JTextField;
  * @author USUARIO
  */
 public class ejercicio_2 extends javax.swing.JFrame {
-
+private JFrame parentFrame;
     /**
      * Creates new form ejercicio_2
      */
     public ejercicio_2() {
         initComponents();
     }
+  // Constructor que recibe un JFrame
+    public ejercicio_2(JFrame frame) {
+        this.parentFrame = frame; // Asigna el JFrame recibido a la variable
+        initComponents(); // Inicializa los componentes de la interfaz
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,16 +42,13 @@ public class ejercicio_2 extends javax.swing.JFrame {
     private void initComponents() {
 
         op = new javax.swing.JPanel();
-        mensajeLabel = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         usuarioTextfield = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         Button1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         contrasenaPassword = new javax.swing.JPasswordField();
-        jLabel5 = new javax.swing.JLabel();
         mensajeWelcome = new javax.swing.JLabel();
+        labelContraseña = new javax.swing.JLabel();
+        labelUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 255));
@@ -51,19 +56,11 @@ public class ejercicio_2 extends javax.swing.JFrame {
         op.setBackground(new java.awt.Color(204, 204, 255));
         op.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel3.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel3.setText("Usuario");
-
         usuarioTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usuarioTextfieldActionPerformed(evt);
             }
         });
-
-        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
-        jLabel1.setText("Contraseña");
 
         Button1.setForeground(new java.awt.Color(0, 204, 51));
         Button1.setText("Login");
@@ -78,10 +75,15 @@ public class ejercicio_2 extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 0, 255));
         jLabel4.setText("                  bienvenido");
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 255));
-
         mensajeWelcome.setForeground(new java.awt.Color(204, 204, 255));
+
+        labelContraseña.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        labelContraseña.setForeground(new java.awt.Color(0, 0, 204));
+        labelContraseña.setText("Contraseña");
+
+        labelUsuario.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        labelUsuario.setForeground(new java.awt.Color(51, 51, 255));
+        labelUsuario.setText("Usuario");
 
         javax.swing.GroupLayout opLayout = new javax.swing.GroupLayout(op);
         op.setLayout(opLayout);
@@ -90,28 +92,22 @@ public class ejercicio_2 extends javax.swing.JFrame {
             .addGroup(opLayout.createSequentialGroup()
                 .addGroup(opLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(opLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(opLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(usuarioTextfield)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Button1)
-                            .addComponent(contrasenaPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)))
+                        .addGap(118, 118, 118)
+                        .addComponent(mensajeWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(opLayout.createSequentialGroup()
                         .addGap(56, 56, 56)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(opLayout.createSequentialGroup()
                         .addGap(92, 92, 92)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(opLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(usuarioTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(contrasenaPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(opLayout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addComponent(jLabel2)
-                        .addGap(114, 114, 114)
-                        .addComponent(mensajeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(opLayout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(mensajeWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(185, 185, 185)
+                        .addComponent(Button1)))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         opLayout.setVerticalGroup(
             opLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,22 +115,16 @@ public class ejercicio_2 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel4)
                 .addGap(49, 49, 49)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labelUsuario)
+                .addGap(18, 18, 18)
                 .addComponent(usuarioTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(contrasenaPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(Button1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addComponent(mensajeLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
+                .addComponent(labelContraseña)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(contrasenaPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(Button1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(mensajeWelcome)
                 .addGap(28, 28, 28))
         );
@@ -143,11 +133,11 @@ public class ejercicio_2 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(op, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(op, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(op, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(op, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -165,7 +155,13 @@ String usuarioTeclado=usuarioTextfield.getText();
 String contrasenaIngresada= new String(contrasenaPassword.getPassword());
 if(usuarioTeclado.equals(Usuario)&& contrasenaIngresada.equals(Contrasena)){
     JOptionPane.showMessageDialog(null,mensaje);
-    mensajeWelcome.setText(mensaje);
+     mensajeWelcome.setText(mensaje);
+    
+    if(parentFrame !=null){
+    parentFrame.dispose();
+    }
+    this.dispose();
+
     
     
 }else{
@@ -173,7 +169,9 @@ if(usuarioTeclado.equals(Usuario)&& contrasenaIngresada.equals(Contrasena)){
 }
 // TODO add your handling code here:
     }//GEN-LAST:event_Button1ActionPerformed
-
+ public JPanel getOp() {
+        return op;
+    }
     /**
      * @param args the command line arguments
      */
@@ -182,12 +180,9 @@ if(usuarioTeclado.equals(Usuario)&& contrasenaIngresada.equals(Contrasena)){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Button1;
     private javax.swing.JPasswordField contrasenaPassword;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel mensajeLabel;
+    private javax.swing.JLabel labelContraseña;
+    private javax.swing.JLabel labelUsuario;
     private javax.swing.JLabel mensajeWelcome;
     private javax.swing.JPanel op;
     private javax.swing.JTextField usuarioTextfield;
@@ -197,9 +192,7 @@ if(usuarioTeclado.equals(Usuario)&& contrasenaIngresada.equals(Contrasena)){
         return Button1;
     }
 
-    public JPanel getOp() {
-        return op;
-    }
+   
 
 
 
