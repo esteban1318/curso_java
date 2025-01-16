@@ -34,12 +34,16 @@ public class ejercicio_2 extends javax.swing.JFrame {
     private void initComponents() {
 
         op = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        usuarioIngresar = new javax.swing.JTextField();
-        button2 = new javax.swing.JButton();
         mensajeLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        usuarioTextfield = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        Button1 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        contrasenaPassword = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
+        mensajeWelcome = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 255));
@@ -47,65 +51,92 @@ public class ejercicio_2 extends javax.swing.JFrame {
         op.setBackground(new java.awt.Color(204, 204, 255));
         op.setForeground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setText("Iniciar");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel3.setText("Usuario");
+
+        usuarioTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                usuarioTextfieldActionPerformed(evt);
             }
         });
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Ingrese su nombre");
-        jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jLabel1.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel1.setText("Contraseña");
 
-        button2.setText("Click");
-        button2.addActionListener(new java.awt.event.ActionListener() {
+        Button1.setForeground(new java.awt.Color(0, 204, 51));
+        Button1.setText("Login");
+        Button1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button2ActionPerformed(evt);
+                Button1ActionPerformed(evt);
             }
         });
+
+        jLabel4.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel4.setText("                  bienvenido");
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 255));
+
+        mensajeWelcome.setForeground(new java.awt.Color(204, 204, 255));
 
         javax.swing.GroupLayout opLayout = new javax.swing.GroupLayout(op);
         op.setLayout(opLayout);
         opLayout.setHorizontalGroup(
             opLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(opLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(opLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(opLayout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(button2))
+                        .addGap(28, 28, 28)
+                        .addGroup(opLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(usuarioTextfield)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Button1)
+                            .addComponent(contrasenaPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)))
                     .addGroup(opLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(opLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(usuarioIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mensajeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))))
-                .addContainerGap(50, Short.MAX_VALUE))
+                        .addGap(56, 56, 56)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(opLayout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(opLayout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(jLabel2)
+                        .addGap(114, 114, 114)
+                        .addComponent(mensajeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(opLayout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addComponent(mensajeWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         opLayout.setVerticalGroup(
             opLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(opLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jButton1)
-                .addGroup(opLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(opLayout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(usuarioIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(button2))
-                    .addGroup(opLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addGap(49, 49, 49)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(usuarioTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(contrasenaPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(Button1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(mensajeLabel)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(40, 40, 40))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(mensajeWelcome)
+                .addGap(28, 28, 28))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -116,24 +147,32 @@ public class ejercicio_2 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(op, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(op, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-JOptionPane.showMessageDialog(null,"welcome");
-// TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void usuarioTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioTextfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usuarioTextfieldActionPerformed
 
-    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
- String usuario=usuarioIngresar.getText();
- String mensaje="bienvenido señor "+usuario;
- mensajeLabel.setText(mensaje);
- 
- 
-    }//GEN-LAST:event_button2ActionPerformed
+    private void Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button1ActionPerformed
+String Usuario="poveda1318";
+String Contrasena="1318";
+String mensaje="bienvenido";
+String usuarioTeclado=usuarioTextfield.getText();
+String contrasenaIngresada= new String(contrasenaPassword.getPassword());
+if(usuarioTeclado.equals(Usuario)&& contrasenaIngresada.equals(Contrasena)){
+    JOptionPane.showMessageDialog(null,mensaje);
+    mensajeWelcome.setText(mensaje);
+    
+    
+}else{
+    JOptionPane.showMessageDialog(null, "usuario o contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+}
+// TODO add your handling code here:
+    }//GEN-LAST:event_Button1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,17 +180,21 @@ JOptionPane.showMessageDialog(null,"welcome");
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton button2;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton Button1;
+    private javax.swing.JPasswordField contrasenaPassword;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel mensajeLabel;
+    private javax.swing.JLabel mensajeWelcome;
     private javax.swing.JPanel op;
-    private javax.swing.JTextField usuarioIngresar;
+    private javax.swing.JTextField usuarioTextfield;
     // End of variables declaration//GEN-END:variables
 
     public JButton getjButton1() {
-        return jButton1;
+        return Button1;
     }
 
     public JPanel getOp() {
