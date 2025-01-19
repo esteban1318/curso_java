@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.TitledBorder;
 
 /**
  *
@@ -24,13 +25,14 @@ private JFrame parentFrame;
      */
     public ejercicio_2() {
         initComponents();
+        setLocationRelativeTo(null);
+        
+        
+        
+    
     }
   // Constructor que recibe un JFrame
-    public ejercicio_2(JFrame frame) {
-        this.parentFrame = frame; // Asigna el JFrame recibido a la variable
-        initComponents(); // Inicializa los componentes de la interfaz
-    }
-    
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,12 +45,13 @@ private JFrame parentFrame;
 
         op = new javax.swing.JPanel();
         usuarioTextfield = new javax.swing.JTextField();
-        Button1 = new javax.swing.JButton();
+        ButtonLogin = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         contrasenaPassword = new javax.swing.JPasswordField();
         mensajeWelcome = new javax.swing.JLabel();
         labelContraseña = new javax.swing.JLabel();
         labelUsuario = new javax.swing.JLabel();
+        ChkPassword = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 255));
@@ -62,12 +65,14 @@ private JFrame parentFrame;
             }
         });
 
-        Button1.setForeground(new java.awt.Color(0, 204, 51));
-        Button1.setText("Login");
-        Button1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Button1.addActionListener(new java.awt.event.ActionListener() {
+        ButtonLogin.setBackground(new java.awt.Color(204, 204, 255));
+        ButtonLogin.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
+        ButtonLogin.setForeground(new java.awt.Color(0, 204, 51));
+        ButtonLogin.setText("Login");
+        ButtonLogin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ButtonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Button1ActionPerformed(evt);
+                ButtonLoginActionPerformed(evt);
             }
         });
 
@@ -78,12 +83,22 @@ private JFrame parentFrame;
         mensajeWelcome.setForeground(new java.awt.Color(204, 204, 255));
 
         labelContraseña.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        labelContraseña.setForeground(new java.awt.Color(0, 0, 204));
+        labelContraseña.setForeground(new java.awt.Color(0, 0, 153));
         labelContraseña.setText("Contraseña");
 
         labelUsuario.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        labelUsuario.setForeground(new java.awt.Color(51, 51, 255));
+        labelUsuario.setForeground(new java.awt.Color(0, 0, 153));
         labelUsuario.setText("Usuario");
+
+        ChkPassword.setBackground(new java.awt.Color(204, 204, 255));
+        ChkPassword.setFont(new java.awt.Font("Arial Black", 0, 11)); // NOI18N
+        ChkPassword.setForeground(new java.awt.Color(0, 0, 153));
+        ChkPassword.setText("ver");
+        ChkPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChkPasswordActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout opLayout = new javax.swing.GroupLayout(op);
         op.setLayout(opLayout);
@@ -101,13 +116,17 @@ private JFrame parentFrame;
                         .addGap(92, 92, 92)
                         .addGroup(opLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(usuarioTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(contrasenaPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(labelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(opLayout.createSequentialGroup()
+                                .addGroup(opLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(contrasenaPassword)
+                                    .addComponent(usuarioTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(ChkPassword))))
                     .addGroup(opLayout.createSequentialGroup()
-                        .addGap(185, 185, 185)
-                        .addComponent(Button1)))
-                .addContainerGap(72, Short.MAX_VALUE))
+                        .addGap(162, 162, 162)
+                        .addComponent(ButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         opLayout.setVerticalGroup(
             opLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,10 +140,12 @@ private JFrame parentFrame;
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelContraseña)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(contrasenaPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(Button1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(opLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(contrasenaPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ChkPassword))
+                .addGap(18, 18, 18)
+                .addComponent(ButtonLogin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(mensajeWelcome)
                 .addGap(28, 28, 28))
         );
@@ -147,28 +168,33 @@ private JFrame parentFrame;
         // TODO add your handling code here:
     }//GEN-LAST:event_usuarioTextfieldActionPerformed
 
-    private void Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button1ActionPerformed
+    private void ButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLoginActionPerformed
 String Usuario="poveda1318";
 String Contrasena="1318";
-String mensaje="bienvenido";
+
 String usuarioTeclado=usuarioTextfield.getText();
 String contrasenaIngresada= new String(contrasenaPassword.getPassword());
 if(usuarioTeclado.equals(Usuario)&& contrasenaIngresada.equals(Contrasena)){
-    JOptionPane.showMessageDialog(null,mensaje);
-     mensajeWelcome.setText(mensaje);
     
-    if(parentFrame !=null){
-    parentFrame.dispose();
-    }
+    
+    
     this.dispose();
-
     
+    
+    
+    ventana2 nuevaventana=new ventana2();
+    nuevaventana.setVisible(true);
+   
     
 }else{
     JOptionPane.showMessageDialog(null, "usuario o contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
 }
 // TODO add your handling code here:
-    }//GEN-LAST:event_Button1ActionPerformed
+    }//GEN-LAST:event_ButtonLoginActionPerformed
+
+    private void ChkPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChkPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ChkPasswordActionPerformed
  public JPanel getOp() {
         return op;
     }
@@ -178,7 +204,8 @@ if(usuarioTeclado.equals(Usuario)&& contrasenaIngresada.equals(Contrasena)){
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Button1;
+    private javax.swing.JButton ButtonLogin;
+    private javax.swing.JCheckBox ChkPassword;
     private javax.swing.JPasswordField contrasenaPassword;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel labelContraseña;
@@ -189,9 +216,10 @@ if(usuarioTeclado.equals(Usuario)&& contrasenaIngresada.equals(Contrasena)){
     // End of variables declaration//GEN-END:variables
 
     public JButton getjButton1() {
-        return Button1;
+        return ButtonLogin;
     }
 
+    
    
 
 

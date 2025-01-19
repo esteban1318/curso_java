@@ -2,19 +2,18 @@ package POO;
 
 public class GestionDeRestaurante {
 
-    String nombrePlato;
-    double precioPlato;
-    double precioTotal;
+    public String nombrePlato;
+    public double precioPlato;
+    public double precioTotal;
 
     public GestionDeRestaurante(String nombrePlato, double Precio) {
         this.nombrePlato = nombrePlato;
         this.precioPlato = Precio;
-        
+
     }
 
     public GestionDeRestaurante() {
     }
-    
 
     public void setNombrePlato(String nombrePlato) {
         this.nombrePlato = nombrePlato;
@@ -39,7 +38,8 @@ public class GestionDeRestaurante {
     public void setPrecioTotal(double precioTotal) {
         this.precioTotal = precioTotal;
     }
-     @Override
+
+    @Override
     public String toString() {
         return nombrePlato + "- $" + precioPlato;
     }
