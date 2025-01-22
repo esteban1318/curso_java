@@ -1,30 +1,33 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Interfaces;
 
 import java.util.ArrayList;
-import POO.GestionDeRestaurante;
+
 import POO.GestionMenu;
+import javax.swing.DefaultListModel;
+
 import javax.swing.JOptionPane;
 
 public class crearMenu extends javax.swing.JFrame {
+private ventana2 anterior;
+    private ArrayList<GestionMenu> lista;
+    private DefaultListModel<String> modelo;
+    
 
-    private GestionDeRestaurante uso;
-    private GestionMenu op;
-    ArrayList<GestionDeRestaurante> lista = new ArrayList<>();
+  
+
     String nameplato;
     double pricePlato;
 
-    /**
-     * Creates new form crearMenu
-     */
-    public crearMenu() {
+   
+    public crearMenu(ArrayList<GestionMenu> lista, DefaultListModel<String> modelo,ventana2 anterior) {
         initComponents();
         setLocationRelativeTo(null);
+        this.lista=lista;
+        this.modelo=modelo;
+        this.anterior=anterior;
+        
+       
 
-        uso = new GestionDeRestaurante("", 0);
     }
 
     @Override
@@ -47,7 +50,8 @@ public class crearMenu extends javax.swing.JFrame {
         Plato = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         howPlato = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        buttonCrear = new javax.swing.JButton();
+        buttonSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,10 +76,17 @@ public class crearMenu extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 51, 51));
         jLabel3.setText("Precio del plato");
 
-        jButton1.setText("Crear");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonCrear.setText("Crear");
+        buttonCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonCrearActionPerformed(evt);
+            }
+        });
+
+        buttonSalir.setText("Exit");
+        buttonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSalirActionPerformed(evt);
             }
         });
 
@@ -91,6 +102,10 @@ public class crearMenu extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCreacionLayout.createSequentialGroup()
                         .addGroup(panelCreacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panelCreacionLayout.createSequentialGroup()
+                                .addComponent(buttonCrear)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(buttonSalir))
                             .addComponent(howPlato, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelCreacionLayout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -99,10 +114,7 @@ public class crearMenu extends javax.swing.JFrame {
                             .addGroup(panelCreacionLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(111, 111, 111))
-                    .addGroup(panelCreacionLayout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(111, 111, 111))))
         );
         panelCreacionLayout.setVerticalGroup(
             panelCreacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,7 +130,9 @@ public class crearMenu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(howPlato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
-                .addComponent(jButton1)
+                .addGroup(panelCreacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonCrear)
+                    .addComponent(buttonSalir))
                 .addGap(33, 33, 33))
         );
 
@@ -141,27 +155,49 @@ public class crearMenu extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_PlatoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        nameplato = Plato.getText();
-        String textoPrecio = howPlato.getText();
-        pricePlato = Double.parseDouble(textoPrecio);
+    private void buttonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCrearActionPerformed
 
-        GestionDeRestaurante nuevoPlato = new GestionDeRestaurante(nameplato, pricePlato);
+ try {
+        nameplato = Plato.getText();
+        pricePlato = Double.parseDouble(howPlato.getText());
+        
+        // Crear nuevo plato y agregarlo a la lista
+        GestionMenu nuevoPlato = new GestionMenu(nameplato, pricePlato, pricePlato);
         lista.add(nuevoPlato);
-        if (!lista.isEmpty()) {
-            this.dispose();
-            JOptionPane.showMessageDialog(null, "plato agregado con exito ");
-        }        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        // Agregar representación del plato al modelo
+        
+        modelo.addElement(nuevoPlato.toString());
+        
+        JOptionPane.showMessageDialog(null, "Plato agregado con éxito.");
+        
+        // Limpiar campos de entrada
+        Plato.setText("");
+        howPlato.setText("");
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Por favor, ingresa un precio válido.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonCrearActionPerformed
+
+    private void buttonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSalirActionPerformed
+        this.dispose();
+        
+       anterior.setVisible(true);
+        
+    }//GEN-LAST:event_buttonSalirActionPerformed
+   
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Plato;
+    private javax.swing.JButton buttonCrear;
+    private javax.swing.JButton buttonSalir;
     private javax.swing.JTextField howPlato;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel panelCreacion;
     // End of variables declaration//GEN-END:variables
+
 }

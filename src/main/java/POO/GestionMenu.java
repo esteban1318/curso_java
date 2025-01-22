@@ -19,6 +19,10 @@ public class GestionMenu extends GestionDeRestaurante {
         this.precioTotal = precioTotal;
 
     }
+      @Override
+    public String toString() {
+        return nombrePlato + "- $" + precioPlato;
+    }
 
     public void crearMenu() {
         System.out.println("ingrese el nombre que tendra el plato");
