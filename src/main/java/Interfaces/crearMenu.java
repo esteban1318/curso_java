@@ -15,8 +15,8 @@ private ventana2 anterior;
 
   
 
-    String nameplato;
-    double pricePlato;
+    public String nameplato;
+    public double pricePlato;
 
    
     public crearMenu(ArrayList<GestionMenu> lista, DefaultListModel<String> modelo,ventana2 anterior) {
@@ -28,6 +28,11 @@ private ventana2 anterior;
         
        
 
+    }
+
+    public crearMenu(String nameplato, double pricePlato) {
+        this.nameplato = nameplato;
+        this.pricePlato = pricePlato;
     }
 
     @Override
@@ -154,6 +159,14 @@ private ventana2 anterior;
 
 // TODO add your handling code here:
     }//GEN-LAST:event_PlatoActionPerformed
+
+    public String getNameplato() {
+        return nameplato;
+    }
+
+    public double getPricePlato() {
+        return pricePlato;
+    }
 
     private void buttonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCrearActionPerformed
 
