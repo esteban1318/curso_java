@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 public class pSingleton {
 
     private static pSingleton instancia;
-    String usuario = "poveda1318";
+    String usuario = "andres1234";
 
     private pSingleton() {
     }

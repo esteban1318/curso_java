@@ -19,7 +19,7 @@ public class interfaz extends JFrame {
     JButton boton2;
     Container panelFrame;
     JTextField campo;
-    
+    JCheckBox cbUno, cbDos;
     public interfaz() {
         initComponents();
         panelFrame = getContentPane();

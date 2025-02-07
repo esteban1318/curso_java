@@ -2,11 +2,11 @@ package POO;
 
 import java.util.Scanner;
 
-public class Uso_herencia {
+public class Uso_herencia{
 
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
-        Herencia op = new Herencia("", "");
+        Herencia op=new Herencia("", "");
         int opcion;
         do{
             System.out.println("ingrese la opcion que desea realizar");
@@ -38,4 +38,6 @@ public class Uso_herencia {
         
         }while(opcion!=0);
     }
+
+  
 }

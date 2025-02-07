@@ -6,15 +6,17 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.security.CodeSigner;
+
 import javax.imageio.ImageIO;
 
 public class java_swing extends JFrame {
 
+    private BufferedImage imagen2;
+
     public java_swing() {
 
         setTitle("AGENDA");
-        setSize(400, 400);
+        setSize(1100, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         crearPanel();
@@ -34,7 +36,7 @@ public class java_swing extends JFrame {
                 Graphics2D g2d = (Graphics2D) g;
 
                 try {
-                    BufferedImage imagen = ImageIO.read(new File("C:\\Users\\USUARIO\\Downloads\\6854056.jpg"));
+                    BufferedImage imagen = ImageIO.read(new File("C:\\Users\\USUARIO\\Downloads\\5590457.jpg"));
                     g2d.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
 
                     Color colorPanelInicio = Color.decode("#2471a3");
@@ -59,18 +61,39 @@ public class java_swing extends JFrame {
         panel.setLayout(null);//se establece null para poder agregar mas elementos y que no haya conflicto
         add(panel);//agregar el panel al jframe
         //creacion de lebel
-        JLabel panel2=new JLabel();
-        
-        panel2.setBounds(300, 350, 120, 30);
-        try{
-            BufferedImage imagen2= ImageIO.read(new File("C:\\Users\\USUARIO\\Downloads\\imagen1.jpg"));
+        JLabel panel2 = new JLabel();
+        panel2.setOpaque(false);
+        panel2.setBounds(1000, 500, 180, 250);
+        panel.add(panel2);
+        try {
+            imagen2 = ImageIO.read(new File("C:\\Users\\USUARIO\\Downloads\\imagen1.jpg"));
             ImageIcon icono = new ImageIcon(imagen2.getScaledInstance(panel2.getWidth(), panel2.getHeight(), Image.SCALE_SMOOTH));
-             panel2.setIcon(icono);
-        }catch(IOException e){
+            panel2.setIcon(icono);
+        } catch (IOException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Error al cargar la segunda imagen: " + e.getMessage());
         }
-        panel.add(panel2);
-        
+        // Ajusta el tamaño del JLabel dinámicamente con el tamaño del panel
+        panel2.setBounds(getWidth() / 2 - 90, getHeight() / 4, 180, 250);
+
+        // Actualiza la imagen
+        actualizarImagen(panel2);
+
+        // Escucha el redimensionamiento de la ventana y ajusta el JLabel
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                panel2.setBounds(getWidth() / 2 - 7, getHeight() / 3, 400, 280);
+                actualizarImagen(panel2);
+            }
+        });
+
+    }
+
+    private void actualizarImagen(JLabel label) {
+        if (imagen2 != null) {
+            ImageIcon icono = new ImageIcon(imagen2.getScaledInstance(label.getWidth(), label.getHeight(), Image.SCALE_SMOOTH));
+            label.setIcon(icono);
+        }
     }
 }
